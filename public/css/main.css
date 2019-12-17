@@ -1,0 +1,283 @@
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    position: relative;
+}
+
+body {
+    min-height: 100vh;
+    background: black;
+    font-family: "Sulphur Point", sans-serif;
+    color: white;
+}
+
+.container {
+    min-height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 56px;
+}
+
+.navbar-brand {
+    color: gold;
+    font-family: 'Alatsi', sans-serif;
+}
+
+.navbar-brand:hover {
+    color: white;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: gold;
+}
+
+
+.hide {
+    display: none;
+    visibility: hidden;
+}
+
+
+.board {
+    display: inline;
+    padding: 10px;
+}
+
+.single-movie {
+    color: white;
+}
+
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.bg-cover {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.poster {
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+
+.single-recommended {
+    z-index: 2;
+    display: flex;
+    overflow-x: auto;
+}
+
+.single-recommended img {
+    margin-right: 15px;
+}
+
+.single-recommended::-webkit-scrollbar {
+    display: none;
+}
+
+.hovereffect {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+}
+
+.hovereffect .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out
+}
+
+.hovereffect img {
+
+    display: block;
+    position: relative;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+}
+
+.he img {
+    width: 95%;
+    padding: 5px 0;
+}
+
+.hovereffect p {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-transform: translatey(-100px);
+    -ms-transform: translatey(-100px);
+    transform: translatey(-100px);
+    -webkit-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    padding: 10px;
+}
+
+.test p {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -ms-transform: translatey(0);
+    -webkit-transform: translatey(0);
+    transform: translatey(0);
+}
+
+.hovereffect a.info {
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: transparent;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    margin: 50px 0 0;
+    padding: 7px 14px;
+}
+
+.hovereffect a.home-info {
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: transparent;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    padding: 7px 14px;
+}
+
+.hovereffect a.info:hover {
+    box-shadow: 0 0 8px #fff;
+}
+
+.hovereffect a.home-info:hover {
+    box-shadow: 0 0 8px #fff;
+}
+
+.hovereffect:hover img {
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.movie-remove {
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    opacity: 0.6;
+}
+
+.movie-remove:hover {
+    opacity: 1;
+}
+
+.hovereffect:hover .overlay {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.hovereffect:hover p,
+.hovereffect:hover a.info {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -ms-transform: translatey(0);
+    -webkit-transform: translatey(0);
+    transform: translatey(0);
+}
+
+.hovereffect:hover a.home-info {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -ms-transform: translatey(0);
+    -webkit-transform: translatey(0);
+    transform: translatey(0);
+}
+
+.hovereffect:hover a.info {
+    -webkit-transition-delay: .2s;
+    transition-delay: .2s;
+}
+
+
+.form {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+}
+
+.form-control {
+    background: #454545;
+    color: white;
+    border: 0;
+}
+
+
+.form-control:focus {
+    background: #454545;
+    color: white;
+    outline: none !important;
+    border-bottom: 1px solid gold;
+}
+
+.form-control::placeholder {
+    color: ghostwhite;
+    text-transform: none !important;
+}
