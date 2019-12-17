@@ -59,7 +59,7 @@ class Signup extends React.Component {
                                     placeholder="Your Name"
                                     className="form-control"
                                     style={{ textTransform: "capitalize" }}
-                                    minlength="6"
+                                    minlength="3"
                                     maxlength="20"
                                 />
                             </div>
