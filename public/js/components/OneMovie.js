@@ -92,9 +92,6 @@ class OneMovie extends React.Component {
             })
             .then(jsonedUser => {
                 this.props.userState(jsonedUser);
-                console.log("json user is ", jsonedUser);
-                console.log("json user is ", jsonedUser);
-                console.log("working");
             })
             .catch(error => console.log(error));
     };

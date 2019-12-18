@@ -8,7 +8,8 @@ class UserMovie extends React.Component {
             removeMovieRoute: `/movies/${this.props.currentUser._id}/${this.props.movie}`,
             isHidden: false,
             backdrop: "",
-            hover: false
+            hover: false,
+            genres: ""
         };
     }
     componentDidMount() {
@@ -18,10 +19,15 @@ class UserMovie extends React.Component {
             })
             .then(
                 json => {
+                    let sgenres = [];
+                    for (let i = 0; i < json.genres.length; i++) {
+                        sgenres.push(json.genres[i].id);
+                    }
                     this.setState({
                         image: `http://image.tmdb.org/t/p/w185${json.poster_path}`,
                         title: json.original_title,
-                        backdrop: `https://image.tmdb.org/t/p/w1280/${json.backdrop_path}`
+                        backdrop: `https://image.tmdb.org/t/p/w1280/${json.backdrop_path}`,
+                        genres: sgenres
                     });
                 },
                 err => console.log(err)
@@ -52,7 +58,17 @@ class UserMovie extends React.Component {
     };
     render() {
         return (
-            <React.Fragment>
+            <div
+                className={
+                    this.props.filterx.length > 0
+                        ? this.props.filterx.every(g =>
+                              this.state.genres.includes(g)
+                          )
+                            ? "showshow"
+                            : "hide"
+                        : "nopropsnostate"
+                }
+            >
                 <div
                     className={this.state.isHidden ? "hide" : ""}
                     onMouseEnter={this.handleMouseEnter}
@@ -87,7 +103,7 @@ class UserMovie extends React.Component {
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 }

@@ -4,33 +4,15 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentUser: "",
-            getRecommended: "",
-            recommendedMovies: []
+            currentUser: ""
         };
     }
     userState = user => {
-        const randomIndex = Math.floor(Math.random() * user.favorites.length);
         this.setState({
-            currentUser: user,
-            getRecommended: `https://api.themoviedb.org/3/movie/${user.favorites[randomIndex]}/recommendations?api_key=1a31cfdf9cc81f7229bbbc09db5d95bd&language=en-US&page=1`
+            currentUser: user
         });
-        fetch(this.state.getRecommended)
-            .then(response => {
-                return response.json();
-            })
-            .then(
-                jsonedMovies => {
-                    this.setState({
-                        recommendedMovies: jsonedMovies.results
-                    });
-                },
-                err => console.log(err)
-            );
-        console.log("current user is", this.state.currentUser);
     };
     handleLogout = () => {
-        console.log("User has logged out");
         this.setState({
             currentUser: ""
         });
@@ -48,7 +30,6 @@ class App extends React.Component {
                         <Route exact path="/">
                             <Home
                                 currentUser={this.state.currentUser}
-                                recommendedMovies={this.state.recommendedMovies}
                                 userState={this.userState}
                             />
                         </Route>

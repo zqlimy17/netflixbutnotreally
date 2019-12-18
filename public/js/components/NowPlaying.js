@@ -19,7 +19,6 @@ class NowPlaying extends React.Component {
                     this.setState({
                         nowPlaying: jsonedMovies.results
                     });
-                    console.log("aaaaaaaaaaaaaaaaa", this.state.nowPlaying);
                 },
                 err => console.log(err)
             );
