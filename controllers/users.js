@@ -18,7 +18,7 @@ users.post("/", (req, res) => {
             if (err) console.log(err.message);
             res.json(createdUser);
         }
-    );
+    ).catch(console.error);
 });
 
 module.exports = users;

@@ -6,12 +6,12 @@ const bcrypt = require("bcryptjs");
 
 sessions.post("/", (req, res) => {
     User.findOne({ username: req.body.username }, (err, foundUser) => {
-        if (err) console.log(err.message)
+        if (err) console.log(err.message);
         if (bcrypt.compareSync(req.body.password, foundUser.password)) {
             req.session.currentUser = foundUser;
             res.json(foundUser);
         }
-    })
+    }).catch(console.error);
 });
 
 module.exports = sessions;

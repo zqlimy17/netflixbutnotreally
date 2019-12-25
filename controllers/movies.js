@@ -16,7 +16,7 @@ movie.put("/:userId/:movieId", (req, res) => {
             console.log(`Movie has been added.`);
             res.json(updatedUser);
         }
-    );
+    ).catch(console.error);
 });
 
 movie.delete("/:userId/:deleteMovieId", (req, res) => {
@@ -33,7 +33,7 @@ movie.delete("/:userId/:deleteMovieId", (req, res) => {
             console.log("Movie has been deleted.");
             res.json(updatedUser);
         }
-    );
+    ).catch(console.error);
 });
 
 module.exports = movie;
