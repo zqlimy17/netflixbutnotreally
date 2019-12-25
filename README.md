@@ -1,6 +1,6 @@
 # GAProject3: [SMDb](https://netflixbutnotreally.herokuapp.com/)
 
-![Screenshot of SMDb](https://raw.githubusercontent.com/zqlimy17/netflixbutnotreally/master/public/img/smdb%20cover.png)
+![Screenshot of SMDb](https://raw.githubusercontent.com/zqlimy17/netflixbutnotreally/master/public/img/smdb_cover.jpeg)
 
 ## About the App
 
