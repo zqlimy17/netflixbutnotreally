@@ -4,7 +4,8 @@ class Login extends React.Component {
         this.state = {
             username: "",
             password: "",
-            currentUser: ""
+            currentUser: "",
+            message: ""
         };
     }
     handleChange = event => {
@@ -24,10 +25,19 @@ class Login extends React.Component {
                 return loggedInUser.json();
             })
             .then(jsonedUser => {
-                this.setState({
-                    currentUser: jsonedUser
-                });
-                console.log("Current User is:", this.state.currentUser);
+                if (jsonedUser.message === null) {
+                    this.setState({
+                        message: "Invalid Username/Password"
+                    });
+                } else if (jsonedUser.message === false) {
+                    this.setState({
+                        message: "Invalid Username/Password"
+                    });
+                } else {
+                    this.setState({
+                        currentUser: jsonedUser
+                    });
+                }
             })
             .then(() => {
                 this.props.userState(this.state.currentUser);
@@ -78,6 +88,13 @@ class Login extends React.Component {
                                 className="btn btn-warning btn-block"
                             />
                         </form>
+                        {this.state.message !== "" ? (
+                            <p style={{ textAlign: "center", color: "red" }}>
+                                {this.state.message}
+                            </p>
+                        ) : (
+                            ""
+                        )}
                         <div>
                             <span style={{ color: "grey" }}>New to SMDB?</span>{" "}
                             <Link to="/signup/">Sign up now</Link>.

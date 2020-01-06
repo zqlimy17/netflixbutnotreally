@@ -11,27 +11,23 @@ class Signup extends React.Component {
     handleChange = event => {
         this.setState({ [event.target.id]: event.target.value });
     };
-    handleSubmit = event => {
+    async handleSubmit(event) {
         event.preventDefault();
-        console.log(this.state);
-        fetch("/users", {
+        let res = await fetch("/users", {
             body: JSON.stringify(this.state),
             method: "POST",
             headers: {
-                Accept: "application/json, text/plain, */*",
+                Accept: "application/json, */*",
                 "Content-Type": "application/json"
             }
-        })
-            .then(createdUser => {
-                return createdUser.json();
-            })
-            .then(() => {
-                this.setState({
-                    redirect: true
-                });
-            })
-            .catch(error => console.log(error));
-    };
+        });
+        res = await res.text();
+        console.log(res);
+
+        this.setState({
+            redirect: true
+        });
+    }
 
     render() {
         if (this.state.redirect === true) {
@@ -45,9 +41,12 @@ class Signup extends React.Component {
                 <div className="row d-flex justify-content-center pt-5">
                     <div className="col-4 form p-4">
                         <h2>
-                            <strong>Login</strong>
+                            <strong>Sign Up</strong>
                         </h2>
-                        <form onSubmit={this.handleSubmit} className="my-4">
+                        <form
+                            onSubmit={() => this.handleSubmit(event)}
+                            className="my-4"
+                        >
                             <div className="form-group">
                                 <label htmlFor="name">Name</label>
                                 <input

@@ -14,11 +14,14 @@ users.post("/", (req, res) => {
             username: req.body.username,
             password: req.body.password
         },
+        {
+            new: true
+        },
         (err, createdUser) => {
             if (err) console.log(err.message);
             res.json(createdUser);
         }
-    ).catch(console.error);
+    ).catch(err);
 });
 
 module.exports = users;

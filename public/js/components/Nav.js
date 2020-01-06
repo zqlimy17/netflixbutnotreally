@@ -26,6 +26,22 @@ class Nav extends React.Component {
                                 Home
                             </Link>
                         </li>
+                        <li className="nav-item px-1">
+                            <Link
+                                className="nav-link"
+                                to="https://www.cathaycineplexes.com.sg/movies/"
+                            >
+                                Cathay
+                            </Link>
+                        </li>
+                        <li className="nav-item px-1">
+                            <Link
+                                className="nav-link"
+                                to="https://www.gv.com.sg/GVMovies"
+                            >
+                                GV
+                            </Link>
+                        </li>
                         {this.props.currentUser ? (
                             <li className="nav-item px-1">
                                 <Link
